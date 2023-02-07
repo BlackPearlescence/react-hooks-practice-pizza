@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Pizza from "./Pizza";
 
-function PizzaList() {
+function PizzaList({pizzas, setPizzaForm,vegetarianSelection,setVegetarianSelection}) {
+  
+
   return (
     <table className="table table-striped">
       <thead>
@@ -16,6 +18,12 @@ function PizzaList() {
         {
           //render Pizza here
         }
+        {pizzas.map(pizza => 
+        <Pizza key={pizza.id} 
+        pizza={pizza}
+        setPizzaForm={setPizzaForm} 
+        vegetarianSelection={vegetarianSelection}
+        setVegetarianSelection={setVegetarianSelection}/>)}
       </tbody>
     </table>
   );
